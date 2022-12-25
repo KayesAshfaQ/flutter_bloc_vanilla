@@ -64,16 +64,24 @@ class _MyHomePageState extends State<MyHomePage> {
           FloatingActionButton(
             onPressed: () => _bloc.counterEventSink.add(IncrementEvent()),
             tooltip: 'Increment',
+            backgroundColor: Colors.green,
             child: const Icon(Icons.add),
           ),
           const SizedBox(width: 10),
           FloatingActionButton(
             onPressed: () => _bloc.counterEventSink.add(DecrementEvent()),
             tooltip: 'Decrement',
+            backgroundColor: Colors.red,
             child: const Icon(Icons.remove),
           ),
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _bloc.dispose();
   }
 }
